@@ -1,0 +1,56 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;900&family=Ubuntu+Mono&display=swap");
+
+/* pfc: primary font color
+   sfc: secondary font color 
+*/
+:root {
+	--bg: #0a192f;
+	--accent: #64ffda;
+	--glass: #64ffdb85;
+	--pfc: #ccd6f6;
+	--sfc: #8892b0;
+	--afs: 1rem;
+	--ubuntu: "Ubuntu Mono", monospace;
+}
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Roboto", sans-serif;
+}
+
+* article > p {
+	line-height: 25px;
+}
+
+header {
+	padding: 20px;
+	position: absolute;
+	width: 100%;
+	/* outline: auto; */
+	color: #64ffda;
+}
+
+#__next {
+	background: #0a192f;
+}
+
+.main {
+	min-height: 100vh;
+}
+
+.section {
+	padding: 0 20px;
+}
+.container {
+	margin: 0 auto;
+}
+
+.mobile-navigation {
+	/* outline: auto; */
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 40px;
+	/* background: pink; */
+}
