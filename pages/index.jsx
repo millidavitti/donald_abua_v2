@@ -3,20 +3,25 @@ import Section from "../components/Section";
 import Container from "../components/Container";
 import home from "../styles/Home.module.css";
 import SectionHeader from "../components/SectionHeader";
+import { FolderSimple, GithubLogo, Link } from "phosphor-react";
+import Featured from "../components/Featured";
+import ToolChain from "../components/ToolChain";
+import OtherProjects from "../components/OtherProjects";
+// import Link as NextLink from 'next/link'
+
 export default function Home() {
 	return (
 		<>
+			{/* <h1>Web porfolio</h1> */}
 			{/* Hero Section */}
 			<Section className={home.heroSection}>
 				<Container className={home.heroContainer}>
-					<h1>Web porfolio</h1>
 					<p>Hi, my name is</p>
 
 					<p>
 						Donald Abua.<br></br>
 						<span>I build things for the web.</span>
 					</p>
-
 					<article>
 						<p>
 							I’m a software engineer specializing in building (and occasionally
@@ -25,14 +30,13 @@ export default function Home() {
 						</p>
 					</article>
 
-					<button>Check out my blog!</button>
+					<button className={home.button}>Check out my blog!</button>
 				</Container>
 			</Section>
 			{/* About ME */}
-			<Section className={home.aboutSection}>
+			<Section className={home.aboutSection} id='about'>
 				<Container className={home.aboutContainer}>
 					<SectionHeader pos={"01"} heading={"About Me"} />
-
 					<article>
 						<p>
 							Hello! My name is Donald and I enjoy creating things that live on
@@ -60,7 +64,6 @@ export default function Home() {
 							<li>Strapi (Headless CMS)</li>
 						</ul>
 					</article>
-
 					<figure>
 						<img
 							src='https://res.cloudinary.com/torch-cms-media/image/upload/v1673611182/avatar_vyu2q3.jpg'
@@ -70,9 +73,88 @@ export default function Home() {
 				</Container>
 			</Section>
 			{/* where I've worked */}
-			<Section>
-				<Container>
+			<Section className={home.workSection} id='experience'>
+				<Container className={home.workContainer}>
 					<SectionHeader pos={"02"} heading={"Where I've worked"} />
+					{/* Workplace */}
+					<div className={home.offices}>
+						{/* TO DO!: Connect to api */}
+						<div className={home.tabs}>
+							<p className={`${home.tab} pointer`}>Upstamnemt</p>
+							<p className={`${home.tab} pointer`}>Upstamnext</p>
+							<p className={`${home.tab} pointer`}>Upstamnewt</p>
+							<p className={`${home.tab} pointer`}>Upstamnept</p>
+							<p className={`${home.tab} pointer`}>Upstamnest</p>
+						</div>
+						<div className={home.office}>
+							<div className={home.officeHeader}>
+								<p className={home.roleCompany}>
+									Engineer <span>@ Upstatement</span>
+								</p>
+								<p className={home.roleDuration}>May 2018 - Present</p>
+							</div>
+							<ul className={home.roleResponsibility}>
+								<li>
+									Write modern, performant, maintainable code for a diverse
+									array of client and internal projects
+								</li>
+								<li>
+									Work with a variety of different languages, platforms,
+									frameworks, and content management systems such as JavaScript,
+									TypeScript, Gatsby, React, Craft, WordPress, Prismic, and
+									Netlify
+								</li>
+								<li>
+									Communicate with multi-disciplinary teams of engineers,
+									designers, producers, and clients on a daily basis
+								</li>
+							</ul>
+						</div>
+					</div>
+				</Container>
+			</Section>
+			{/* Notable Projects */}
+			<Section className={home.featuredSection} id='work'>
+				<Container className={home.featuredContainer}>
+					<SectionHeader pos={"03"} heading={"Some Things I’ve Built"} />
+					<Featured />
+					<Featured flip={true} />
+					<Featured />
+				</Container>
+			</Section>
+			{/* Other Noteable Projects */}
+			<Section>
+				<Container className={home.otherProjContainer}>
+					<div className={home.opHead}>
+						<h2>Other Noteworthy Projects</h2>
+						<p>view the archive</p>
+					</div>
+					<div className={home.opGrid}>
+						<OtherProjects />
+						<OtherProjects />
+						<OtherProjects />
+						<OtherProjects />
+						<OtherProjects />
+					</div>
+				</Container>
+			</Section>
+			{/* What next */}
+			<Section id='contact'>
+				<Container className={home.contact}>
+					<p>04. What&apos;s next?</p>
+					<article>
+						<h2>Get In touch</h2>
+						<p>
+							Although I’m not currently looking for any new opportunities, my
+							inbox is always open. Whether you have a question or just want to
+							say hi, I’ll try my best to get back to you!
+						</p>
+						<a href='mailto:abuadonald@gmail.com'>
+							<button type='button' className={home.button}>
+								Say Hello
+							</button>
+						</a>
+					</article>
 				</Container>
 			</Section>
 		</>
