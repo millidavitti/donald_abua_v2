@@ -6,7 +6,7 @@
 
 .heroSection {
 	display: flex;
-	padding: 140px inherit;
+	padding: 140px 100px;
 	min-height: 100vh;
 }
 

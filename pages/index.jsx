@@ -22,6 +22,7 @@ export default function Home() {
 						Donald Abua.<br></br>
 						<span>I build things for the web.</span>
 					</p>
+
 					<article>
 						<p>
 							I’m a software engineer specializing in building (and occasionally

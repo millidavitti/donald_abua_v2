@@ -6,11 +6,31 @@ import {
 	TwitterLogo,
 	X,
 } from "phosphor-react";
-import { useEffect, useState } from "react";
+import debounce from "lodash/debounce";
+import { useEffect, useRef, useState } from "react";
 
 export default function Layout({ children }) {
 	const [isToggled, setIsToggled] = useState(false);
+	const [vector, setVector] = useState(0);
+	const nav = useRef();
+
+	const deBounce = debounce(scroll, 1000, { leading: true });
+
 	useEffect(() => {}, [isToggled]);
+
+	useEffect(() => {
+		window.addEventListener("scroll", deBounce);
+		return () => {
+			window.removeEventListener("scroll", deBounce);
+		};
+	});
+
+	function scroll() {
+		if (document.body.getBoundingClientRect().top > vector) {
+			nav.current.style.translate = 0;
+		} else nav.current.style.translate = `${-200}px`;
+		setVector(document.body.getBoundingClientRect().top);
+	}
 	function toggle() {
 		setIsToggled((pre) => !pre);
 	}
@@ -24,7 +44,12 @@ export default function Layout({ children }) {
 					pointerEvents: isToggled ? "unset" : "none",
 				}}
 			></div>
-			<header>
+			<header
+				onScroll={() => {
+					console.log("Triggered by the header");
+				}}
+				ref={nav}
+			>
 				<nav className='mobile-navigation'>
 					<div className='logo'>Logo</div>
 					{/* Mobile */}
@@ -36,7 +61,7 @@ export default function Layout({ children }) {
 							pointerEvents: isToggled ? "unset" : "none",
 						}}
 					>
-						<div className='mobile-nav-items'>
+						<div className='mobile-nav-items' onClick={toggle}>
 							<a href='#about'>
 								<span>01.</span>About
 							</a>
@@ -56,19 +81,19 @@ export default function Layout({ children }) {
 					</div>
 					<div className='desk-menu'>
 						<div className='desk-nav-items'>
-							<a href='#about'>
+							<a className='nav-link' href='#about'>
 								<span>01.</span>About
 							</a>
-							<a href='#experience'>
+							<a className='nav-link' href='#experience'>
 								<span>02.</span>Experience
 							</a>
-							<a href='#work'>
+							<a className='nav-link' href='#work'>
 								<span>03.</span>Work
 							</a>
-							<a href='#contact'>
+							<a className='nav-link' href='#contact'>
 								<span>04.</span>Contact
 							</a>
-							<button className='button' type='button'>
+							<button className='button resume' type='button'>
 								Resume
 							</button>
 						</div>

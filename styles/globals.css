@@ -34,10 +34,15 @@ li {
 }
 
 header {
-	padding: 20px;
-	position: absolute;
+	padding: 20px 50px;
+	position: fixed;
+	z-index: 8;
 	width: 100%;
+	top: 0;
+	background-color: #0a192f9c;
+	backdrop-filter: blur(5px);
 	color: #64ffda;
+	transition: translate 300ms ease-in-out;
 }
 
 .button {
@@ -62,7 +67,7 @@ header {
 }
 
 .section {
-	padding: min(80px, 5vw);
+	padding: min(5vw, 100px);
 }
 .container {
 	margin: 0 auto;
@@ -71,6 +76,16 @@ header {
 
 .pointer {
 	cursor: pointer;
+}
+
+.nav-link {
+	display: flex;
+	gap: 10px;
+	align-items: center;
+	text-decoration: none;
+	color: var(--sfc);
+	font-family: var(--ubuntu);
+	font-size: 1.2rem;
 }
 
 .overlay {
@@ -141,18 +156,11 @@ header {
 	color: var(--accent);
 }
 
-.mobile-nav-items a {
-	display: flex;
+.mobile-nav-items .nav-link {
 	flex-flow: column;
-	gap: 10px;
-	align-items: center;
-	text-decoration: none;
-	color: var(--sfc);
-	font-family: var(--ubuntu);
-	font-size: 1.2rem;
 }
 
-.mobile-nav-items a span {
+.mobile-nav-items .nav-link span {
 	font-family: var(--ubuntu);
 	color: var(--accent);
 }
@@ -187,6 +195,35 @@ footer {
 }
 
 @media screen and (min-width: 768px) {
+	.desk-menu {
+		display: unset;
+		/* gap: 30px; */
+		/* outline: auto; */
+	}
+
+	.desk-nav-items {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: min(50vw, 700px);
+	}
+
+	.desk-nav-items .nav-link {
+		flex-flow: row;
+		gap: 0;
+		font-size: 1rem;
+	}
+
+	.desk-nav-items .nav-link span {
+		font-family: var(--ubuntu);
+		color: var(--accent);
+	}
+
+	.resume {
+		margin: auto 0;
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
 	.open-icon,
 	.close-icon {
 		display: none;
