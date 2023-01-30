@@ -7,14 +7,14 @@ import {
 	X,
 } from "phosphor-react";
 import debounce from "lodash/debounce";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 export default function Layout({ children }) {
 	const [isToggled, setIsToggled] = useState(false);
 	const [vector, setVector] = useState(0);
 	const nav = useRef();
 
-	const deBounce = debounce(scroll, 1000, { leading: true });
+	const deBounce = debounce(scroll, 500, { leading: true });
 
 	useEffect(() => {}, [isToggled]);
 
@@ -26,11 +26,12 @@ export default function Layout({ children }) {
 	});
 
 	function scroll() {
-		if (document.body.getBoundingClientRect().top > vector) {
+		if (document.body.getBoundingClientRect().top >= vector) {
 			nav.current.style.translate = 0;
-		} else nav.current.style.translate = `${-200}px`;
+		} else nav.current.style.translate = `0 ${-200}px`;
 		setVector(document.body.getBoundingClientRect().top);
 	}
+
 	function toggle() {
 		setIsToggled((pre) => !pre);
 	}
@@ -44,12 +45,7 @@ export default function Layout({ children }) {
 					pointerEvents: isToggled ? "unset" : "none",
 				}}
 			></div>
-			<header
-				onScroll={() => {
-					console.log("Triggered by the header");
-				}}
-				ref={nav}
-			>
+			<header ref={nav}>
 				<nav className='mobile-navigation'>
 					<div className='logo'>Logo</div>
 					{/* Mobile */}
@@ -62,16 +58,16 @@ export default function Layout({ children }) {
 						}}
 					>
 						<div className='mobile-nav-items' onClick={toggle}>
-							<a href='#about'>
+							<a className='nav-link' href='#about'>
 								<span>01.</span>About
 							</a>
-							<a href='#experience'>
+							<a className='nav-link' href='#experience'>
 								<span>02.</span>Experience
 							</a>
-							<a href='#work'>
+							<a className='nav-link' href='#work'>
 								<span>03.</span>Work
 							</a>
-							<a href='#contact'>
+							<a className='nav-link' href='#contact'>
 								<span>04.</span>Contact
 							</a>
 							<button className='button' type='button'>
@@ -79,6 +75,7 @@ export default function Layout({ children }) {
 							</button>
 						</div>
 					</div>
+					{/* Desktop */}
 					<div className='desk-menu'>
 						<div className='desk-nav-items'>
 							<a className='nav-link' href='#about'>
