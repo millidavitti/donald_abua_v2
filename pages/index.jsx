@@ -7,6 +7,7 @@ import { FolderSimple, GithubLogo, Link } from "phosphor-react";
 import Featured from "../components/Featured";
 import ToolChain from "../components/ToolChain";
 import OtherProjects from "../components/OtherProjects";
+import Experience from "../components/Experience";
 // import Link as NextLink from 'next/link'
 
 export default function Home() {
@@ -78,39 +79,8 @@ export default function Home() {
 				<Container className={home.workContainer}>
 					<SectionHeader pos={"02"} heading={"Where I've worked"} />
 					{/* Workplace */}
-					<div className={home.offices}>
-						{/* TO DO!: Connect to api */}
-						<div className={home.tabs}>
-							<p className={`${home.tab} pointer`}>Upstamnemt</p>
-							<p className={`${home.tab} pointer`}>Upstamnext</p>
-							<p className={`${home.tab} pointer`}>Upstamnewt</p>
-							<p className={`${home.tab} pointer`}>Upstamnept</p>
-							<p className={`${home.tab} pointer`}>Upstamnest</p>
-						</div>
-						<div className={home.office}>
-							<div className={home.officeHeader}>
-								<p className={home.roleCompany}>
-									Engineer <span>@ Upstatement</span>
-								</p>
-								<p className={home.roleDuration}>May 2018 - Present</p>
-							</div>
-							<ul className={home.roleResponsibility}>
-								<li>
-									Write modern, performant, maintainable code for a diverse
-									array of client and internal projects
-								</li>
-								<li>
-									Work with a variety of different languages, platforms,
-									frameworks, and content management systems such as JavaScript,
-									TypeScript, Gatsby, React, Craft, WordPress, Prismic, and
-									Netlify
-								</li>
-								<li>
-									Communicate with multi-disciplinary teams of engineers,
-									designers, producers, and clients on a daily basis
-								</li>
-							</ul>
-						</div>
+					<div className={home.experiences}>
+						<Experience />
 					</div>
 				</Container>
 			</Section>

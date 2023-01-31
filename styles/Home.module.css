@@ -181,10 +181,20 @@
 	display: flex;
 	gap: 10px;
 	width: 100%;
-	overflow-x: hidden;
+	padding-bottom: 10px;
+	overflow-x: auto;
 	font-size: var(unfs);
 	color: var(--sfc);
 	margin-right: auto;
+}
+
+.tabs::-webkit-scrollbar {
+	height: 5px;
+}
+
+.tabs::-webkit-scrollbar-thumb {
+	background-color: var(--accent);
+	height: 5px;
 }
 
 .tabs p {
@@ -194,21 +204,22 @@
 	padding: 10px 20px;
 }
 
-.offices {
+.experiences {
 	display: grid;
-	gap: 30px;
+	gap: 20px;
 	width: 100%;
 	max-width: 600px;
 }
 
-.office {
+.experience {
 	display: grid;
 	gap: 20px;
 }
 
-.officeHeader {
+.experienceHeader {
 	display: grid;
 	gap: 10px;
+	cursor: pointer;
 }
 
 .roleCompany {
@@ -431,21 +442,45 @@
 	gap: 15px;
 }
 
+/* Dynamic */
+.deskTabHighlight {
+	border-bottom: 5px solid var(--accent);
+}
+
+.slideIn {
+	animation: animateIn 300ms cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+@keyframes animateIn {
+	0% {
+		opacity: 0;
+		translate: 0 20px;
+	}
+	100% {
+		opacity: 1;
+		translate: 0;
+	}
+}
+
 @media screen and (min-width: 600px) {
 	.heroContainer article > p {
 		width: 70%;
 	}
-	.offices {
+
+	.experiences {
 		grid-template-columns: repeat(12, 1fr);
 		margin-top: 40px;
 	}
 
+	.experience {
+		grid-column: 4/-1;
+	}
+
 	.tabs {
+		/* outline: auto; */
 		display: flex;
 		flex-flow: column;
 		padding: 0;
-		width: -moz-fit-content;
-		width: fit-content;
+		width: 100%;
 		gap: 20px;
 		grid-column: 1/4;
 		overflow-x: hidden;
@@ -454,20 +489,28 @@
 
 	.tab {
 		width: -moz-fit-content;
-		width: fit-content;
+		padding: 10px 0;
+		padding-left: 10px;
+		/* border: 1px solid yellow; */
 	}
 
 	.tab:hover {
 		background-color: var(--glass);
 	}
 
-	.office {
-		grid-column: 4/-1;
+	.tab:hover {
+		color: black;
 	}
 
 	.opGrid {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	}
+
+	/* Dynamic Styles */
+	.deskTabHighlight {
+		border-left: 5px solid var(--accent);
+		border-bottom: none;
 	}
 }
 @media screen and (min-width: 768px) {
