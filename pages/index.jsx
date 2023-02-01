@@ -3,17 +3,14 @@ import Section from "../components/Section";
 import Container from "../components/Container";
 import home from "../styles/Home.module.css";
 import SectionHeader from "../components/SectionHeader";
-import { FolderSimple, GithubLogo, Link } from "phosphor-react";
 import Featured from "../components/Featured";
-import ToolChain from "../components/ToolChain";
 import OtherProjects from "../components/OtherProjects";
 import Experience from "../components/Experience";
-// import Link as NextLink from 'next/link'
 
+import { features, others } from "../utils/mock";
 export default function Home() {
 	return (
 		<>
-			{/* <h1>Web porfolio</h1> */}
 			{/* Hero Section */}
 			<Section className={home.heroSection}>
 				<Container className={home.heroContainer}>
@@ -32,7 +29,15 @@ export default function Home() {
 						</p>
 					</article>
 
-					<button className={home.button}>Check out my blog!</button>
+					<a
+						href='https://medium.com/@abuadonald'
+						target='_blank'
+						rel='noreferrer'
+					>
+						<button className={home.button} type='button'>
+							Check out my blog!
+						</button>
+					</a>
 				</Container>
 			</Section>
 			{/* About ME */}
@@ -88,9 +93,13 @@ export default function Home() {
 			<Section className={home.featuredSection} id='work'>
 				<Container className={home.featuredContainer}>
 					<SectionHeader pos={"03"} heading={"Some Things I’ve Built"} />
-					<Featured />
-					<Featured flip={true} />
-					<Featured />
+					{features.map((feature, index) =>
+						index % 2 ? (
+							<Featured key={index} data={feature} />
+						) : (
+							<Featured key={index} flip={true} data={feature} />
+						),
+					)}
 				</Container>
 			</Section>
 			{/* Other Noteable Projects */}
@@ -101,11 +110,11 @@ export default function Home() {
 						<p>view the archive</p>
 					</div>
 					<div className={home.opGrid}>
-						<OtherProjects />
-						<OtherProjects />
-						<OtherProjects />
-						<OtherProjects />
-						<OtherProjects />
+						{others.map((project) => (
+							<a key={project.name} href={project.link}>
+								<OtherProjects data={project} />
+							</a>
+						))}
 					</div>
 				</Container>
 			</Section>
