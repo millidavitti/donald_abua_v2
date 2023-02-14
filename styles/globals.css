@@ -33,6 +33,11 @@ li {
 	line-height: 21px;
 }
 
+.logo {
+	width: 35px;
+	height: 35px;
+}
+
 header {
 	padding: 10px 40px;
 	position: fixed;
@@ -64,6 +69,7 @@ header {
 
 .main {
 	min-height: 100vh;
+	overflow: hidden;
 }
 
 .section {

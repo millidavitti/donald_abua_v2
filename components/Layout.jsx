@@ -6,8 +6,10 @@ import {
 	TwitterLogo,
 	X,
 } from "phosphor-react";
+import Logo from "../assets/Logo";
 import debounce from "lodash/debounce";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 
 export default function Layout({ children }) {
 	const [isToggled, setIsToggled] = useState(false);
@@ -47,7 +49,11 @@ export default function Layout({ children }) {
 			></div>
 			<header ref={nav}>
 				<nav className='mobile-navigation'>
-					<div className='logo'>Logo</div>
+					<div className='logo'>
+						<Link href='/'>
+							<Logo />
+						</Link>
+					</div>
 					{/* Mobile */}
 					<div
 						className='mobile-menu'

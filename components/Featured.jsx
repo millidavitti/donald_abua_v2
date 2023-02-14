@@ -1,32 +1,31 @@
 /* eslint-disable @next/next/no-img-element */
 import { GithubLogo, Link } from "phosphor-react";
+import { forwardRef } from "react";
 import home from "../styles/Home.module.css";
 import ToolChain from "./ToolChain";
 
-export default function Featured({ flip }) {
+export default forwardRef(function Featured({ flip, data }, ref) {
 	return (
-		<div className={home.featured}>
+		<div className={home.featured} ref={ref}>
 			<div className={`${home.featuredContent} ${flip && home.flipContent}`}>
 				<div className={home.featuredHeader}>
 					<p>Featured Project</p>
-					<h2>Nulo Hotels</h2>
+					<h2>{data.name}</h2>
 				</div>
 
-				<p>
-					A minimal, dark blue theme for VS Code, Sublime Text, Atom, iTerm, and
-					more. Available on Visual Studio Marketplace, Package Control, Atom
-					Package Manager, and npm.
-				</p>
+				<p>{data.description}</p>
 				<ToolChain>
-					<p>VS Code</p>
-					<p>Sublime Text</p>
-					<p>Atom</p>
-					<p>iTerm2</p>
-					<p>Hyper</p>
+					{data.tools.map((tool) => (
+						<p key={tool}>{tool}</p>
+					))}
 				</ToolChain>
 				<div className={home.featuredIcon}>
-					<GithubLogo size={25} color='white' />
-					<Link size={25} color='white' />
+					<a href={data.github}>
+						<GithubLogo size={25} color='white' />
+					</a>
+					<a href={data.link}>
+						<Link size={25} color='white' />
+					</a>
 				</div>
 			</div>
 
@@ -39,4 +38,4 @@ export default function Featured({ flip }) {
 			</figure>
 		</div>
 	);
-}
+});
