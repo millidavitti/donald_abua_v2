@@ -4,12 +4,12 @@
 			viewBox='0 0 512 512'
 		>
 			<g
-				fill='none'
-				stroke='var(--accent)'
+				fill='#0a192f'
+				stroke='#64ffda'
 				strokeLinecap='round'
 				strokeLinejoin='round'
 				strokeMiterlimit='10'
-				strokeWidth='20'
+				strokeWidth='50'
 			>
 				<path d='M361.661 249.039L394.565 270.287 394.565 462.59 275.328 387.463z'></path>
 				<path d='M437.766 93.195L242.293 93.195 221.254 127.771 361.661 216.039z'></path>

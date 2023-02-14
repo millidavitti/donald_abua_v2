@@ -10,6 +10,7 @@ import Logo from "../assets/Logo";
 import debounce from "lodash/debounce";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import Head from "next/head";
 
 export default function Layout({ children }) {
 	const [isToggled, setIsToggled] = useState(false);
@@ -47,6 +48,9 @@ export default function Layout({ children }) {
 					pointerEvents: isToggled ? "unset" : "none",
 				}}
 			></div>
+			<Head>
+				<link rel='icon' href='favicon.ico' />
+			</Head>
 			<header ref={nav}>
 				<nav className='mobile-navigation'>
 					<div className='logo'>
