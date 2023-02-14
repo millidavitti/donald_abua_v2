@@ -1,11 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
 import { GithubLogo, Link } from "phosphor-react";
+import { forwardRef } from "react";
 import home from "../styles/Home.module.css";
 import ToolChain from "./ToolChain";
 
-export default function Featured({ flip, data }) {
+export default forwardRef(function Featured({ flip, data }, ref) {
 	return (
-		<div className={home.featured}>
+		<div className={home.featured} ref={ref}>
 			<div className={`${home.featuredContent} ${flip && home.flipContent}`}>
 				<div className={home.featuredHeader}>
 					<p>Featured Project</p>
@@ -37,4 +38,4 @@ export default function Featured({ flip, data }) {
 			</figure>
 		</div>
 	);
-}
+});
