@@ -40,4 +40,4 @@ Flexisaf (May 2022 - Dec 2022)
 In my free time, I enjoy reading about the latest technology trends and developments, contributing to open-source projects, and exploring new tools and frameworks to improve my skills.
 
 Contact
-Feel free to contact me at your-email@example.com or connect with me on [LinkedIn](https://www.linkedin.com/in/donaldabua-react/).
+Feel free to contact me at abuadonald@gmail.com or connect with me on [LinkedIn](https://www.linkedin.com/in/donaldabua-react/).
