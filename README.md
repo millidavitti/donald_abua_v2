@@ -1,34 +1,43 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Hi there, I'm a Software Engineer 👋
 
-## Getting Started
+I'm a software engineer with two years of experience, specializing in web development with a strong background in Git, Shell, React, Next.js, JavaScript, CI/CD, collaboration, attention to details, organized, HTML, and CSS. This is the second iteration of my website built with [Next](https://nextjs.org/) and hosted with [Vercel](https://vercel.com/).
 
-First, run the development server:
+## Skills and Expertise
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+- Proficiency in HTML, CSS, and JavaScript
+- Experience with popular front-end frameworks such as React, Angular, or Vue.js
+- Understanding of server-side technologies such as Node.js
+- Knowledge of database technologies such as MongoDB
+- Familiarity with version control systems such as Git
+- Ability to create responsive and accessible web designs
+- Experience with testing and debugging web applications
+- Understanding of web performance optimization techniques
+- Familiarity with Agile development methodologies and project management tools
+- Strong communication and collaboration skills for working in a team environment.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Work Experience
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+### Software Engineer (Intern)
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+Oluadepe Farms (Jan 2023 - Present)
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- Developed and maintained web applications using React and Next.js.
+- Utilized Git for version control and collaborated with team members using CI/CD pipelines.
+- Implemented responsive and accessible designs using HTML and CSS.
+- Ensured the quality of the code by adhering to coding standards and attention to details.
 
-## Learn More
+### Junior Software Engineer (Intern)
 
-To learn more about Next.js, take a look at the following resources:
+Flexisaf (May 2022 - Dec 2022)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Assisted in the development and maintenance of web applications using React and Next.js.
+- Utilized Git for version control and collaborated with team members using CI/CD pipelines.
+- Implemented responsive and accessible designs using HTML and CSS.
+- Ensured the quality of the code by adhering to coding standards and attention to details.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Interests
 
-## Deploy on Vercel
+In my free time, I enjoy reading about the latest technology trends and developments, contributing to open-source projects, and exploring new tools and frameworks to improve my skills.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Contact
+Feel free to contact me at abuadonald@gmail.com or connect with me on [LinkedIn](https://www.linkedin.com/in/donaldabua-react/).

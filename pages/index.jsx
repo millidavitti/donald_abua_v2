@@ -10,6 +10,7 @@ import Experience from "../components/Experience";
 import { features, others } from "../utils/mock";
 import { useEffect, useRef } from "react";
 import Observer from "../components/Observer";
+import Head from "next/head";
 export default function Home() {
 	const aboutSection = useRef();
 	const aboutMe = useRef();
@@ -23,7 +24,6 @@ export default function Home() {
 	return (
 		<>
 			{/* Hero Section */}
-
 			<Section className={home.heroSection}>
 				<Container className={home.heroContainer}>
 					<p>Hi, my name is</p>
