@@ -9,21 +9,24 @@ export default function Observer({
 }) {
 	// About Me
 	useEffect(() => {
-		const view = document.documentElement;
+		const view = window.innerWidth;
+		const root = parent.current;
 		const observer = new IntersectionObserver(
 			(entries) => {
 				const [entry] = entries;
 				if (Array.isArray(elem.current)) {
-					console.log("IS an array");
 					for (const el of elem.current) {
-						if (entry.isIntersecting && el.id == entry.target.id) {
-							console.log(entry);
-							el.classList.add(classList);
-						} else if (
-							entry.boundingClientRect.bottom < 0 ||
-							entry.boundingClientRect.top > view.clientHeight
-						)
-							el.classList.remove(classList);
+						if (entry.isIntersecting) {
+							if (el.id == entry.target.id) {
+								el.classList.add(classList);
+							} else if (
+								el.getBoundingClientRect().bottom < 0 ||
+								el.getBoundingClientRect().top > view
+							) {
+								console.log(entry);
+								el.classList.remove(classList);
+							}
+						}
 					}
 					return;
 					// Single Elements
@@ -39,6 +42,10 @@ export default function Observer({
 		if (Array.isArray(parent.current))
 			parent.current.forEach((elem) => observer.observe(elem));
 		else parent.current && observer.observe(parent.current);
+		return () => {
+			if (Array.isArray(root)) root.forEach((elem) => observer.unobserve(elem));
+			else root && observer.unobserve(root);
+		};
 	});
 	return <>{children}</>;
 }

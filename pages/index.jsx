@@ -135,7 +135,7 @@ export default function Home() {
 						parent={featured}
 						elem={featured}
 						classList={home.slideUp}
-						config={{ threshold: 0.06 }}
+						config={{ threshold: 0.1 }}
 					>
 						{features.map((feature, index) =>
 							index % 2 ? (
