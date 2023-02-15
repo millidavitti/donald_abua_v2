@@ -4,9 +4,9 @@ import { forwardRef } from "react";
 import home from "../styles/Home.module.css";
 import ToolChain from "./ToolChain";
 
-export default forwardRef(function Featured({ flip, data }, ref) {
+export default forwardRef(function Featured({ flip, data, id }, ref) {
 	return (
-		<div className={home.featured} ref={ref}>
+		<div className={home.featured} id={id} ref={ref}>
 			<div className={`${home.featuredContent} ${flip && home.flipContent}`}>
 				<div className={home.featuredHeader}>
 					<p>Featured Project</p>

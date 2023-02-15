@@ -10,15 +10,17 @@ import Experience from "../components/Experience";
 import { features, others } from "../utils/mock";
 import { useEffect, useRef } from "react";
 import Observer from "../components/Observer";
-import Head from "next/head";
+
 export default function Home() {
 	const aboutSection = useRef();
 	const aboutMe = useRef();
 	const photo = useRef();
 	const experience = useRef();
+	const featuredSection = useRef();
+	const featured = useRef([]);
 
-	function allRefs(el) {
-		console.log(el);
+	function featureRefs(idx, el) {
+		return (featured.current[idx] = el);
 	}
 
 	return (
@@ -125,18 +127,38 @@ export default function Home() {
 				</Observer>
 			</Section>
 			{/* Notable Projects */}
-			<Section ref={allRefs} className={home.featuredSection} id='work'>
+
+			<Section ref={featuredSection} className={home.featuredSection} id='work'>
 				<Container className={home.featuredContainer}>
 					<SectionHeader pos={"03"} heading={"Some Things I’ve Built"} />
-					{features.map((feature, index) =>
-						index % 2 ? (
-							<Featured key={index} data={feature} />
-						) : (
-							<Featured key={index} flip={true} data={feature} />
-						),
-					)}
+					<Observer
+						parent={featured}
+						elem={featured}
+						classList={home.slideUp}
+						config={{ threshold: 0.1 }}
+					>
+						{features.map((feature, index) =>
+							index % 2 ? (
+								<Featured
+									ref={featureRefs.bind(null, index)}
+									key={index}
+									data={feature}
+									id={index}
+								/>
+							) : (
+								<Featured
+									ref={featureRefs.bind(null, index)}
+									key={index}
+									flip={true}
+									data={feature}
+									id={index}
+								/>
+							),
+						)}
+					</Observer>
 				</Container>
 			</Section>
+
 			{/* Other Noteable Projects */}
 			<Section>
 				<Container className={home.otherProjContainer}>
@@ -146,7 +168,7 @@ export default function Home() {
 					</div>
 					<div className={home.opGrid}>
 						{others.map((project) => (
-							<a key={project.name} href={allRefs.link}>
+							<a key={project.name} href={project.link}>
 								<OtherProjects data={project} />
 							</a>
 						))}
