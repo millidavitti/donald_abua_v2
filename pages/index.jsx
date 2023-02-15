@@ -8,9 +8,8 @@ import OtherProjects from "../components/OtherProjects";
 import Experience from "../components/Experience";
 
 import { features, others } from "../utils/mock";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import Observer from "../components/Observer";
-
 export default function Home() {
 	const aboutSection = useRef();
 	const aboutMe = useRef();

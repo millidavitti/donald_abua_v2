@@ -1,6 +1,8 @@
 require("dotenv").config();
 const mongoose = require("mongoose");
 
+mongoose.set("strictQuery", false);
+
 mongoose.connection.once("open", () => {
 	console.log("Connnection to database successful");
 });
