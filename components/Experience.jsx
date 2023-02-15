@@ -55,7 +55,7 @@ export default function Experience() {
 					</p>
 				</div>
 				<ul className={home.roleResponsibility}>
-					{experience.contribution.map((cont, index) => (
+					{experience.contributions.map((cont, index) => (
 						<li key={index}>{cont}</li>
 					))}
 				</ul>
