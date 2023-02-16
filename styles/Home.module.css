@@ -10,8 +10,8 @@
 	min-height: 100vh;
 	padding-bottom: 0;
 }
-.heroSection a{
-   width: fit-content;
+.heroSection a {
+	width: fit-content;
 }
 
 .heroContainer {
@@ -261,6 +261,7 @@
 }
 .tab {
 	padding: 10px 20px;
+	flex-shrink: 0;
 }
 
 .experiences {
@@ -572,6 +573,8 @@
 		width: -moz-fit-content;
 		padding: 10px 0;
 		padding-left: 10px;
+		flex-shrink: 1;
+
 		/* border: 1px solid yellow; */
 	}
 
@@ -603,6 +606,7 @@
 	}
 	.aboutContainer {
 		grid-template-columns: repeat(12, 1fr);
+		padding: 0 50px;
 	}
 
 	.aboutArticle {
@@ -636,6 +640,7 @@
 		background: none;
 		border: none;
 		box-shadow: none;
+		padding: 30px 50px;
 	}
 
 	.featuredContent {
