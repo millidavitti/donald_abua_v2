@@ -7,7 +7,7 @@ const schema = new mongoose.Schema({
 		start: String,
 		end: String,
 	},
-	contributions: [Strings],
+	contributions: [String],
 });
 
 module.exports =
