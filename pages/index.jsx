@@ -109,6 +109,7 @@ export default function Home() {
 					</Container>
 				</Section>
 			</Observer>
+
 			{/* where I've worked */}
 			<Section className={home.workSection} id='experience'>
 				<Observer parent={experience} elem={experience} classList={home.scale}>
@@ -125,8 +126,8 @@ export default function Home() {
 					</Container>
 				</Observer>
 			</Section>
-			{/* Notable Projects */}
 
+			{/* Notable Projects */}
 			<Section ref={featuredSection} className={home.featuredSection} id='work'>
 				<Container className={home.featuredContainer}>
 					<SectionHeader pos={"03"} heading={"Some Things I’ve Built"} />
@@ -174,6 +175,7 @@ export default function Home() {
 					</div>
 				</Container>
 			</Section>
+
 			{/* What next */}
 			<Section id='contact'>
 				<Container className={home.contact}>
@@ -196,3 +198,5 @@ export default function Home() {
 		</>
 	);
 }
+
+function getServerSideProps() {}

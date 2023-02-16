@@ -1,68 +1,58 @@
 export const features = [
 	{
-		name: "Halcyon Theme",
+		name: "Nulo",
+		description:
+			"Welcome to Nulo, the ultimate travel companion for your next adventure! With Nulo, you can book the perfect accommodation for your dream vacation, whether it's a cozy hotel room, a luxurious resort villa, or a unique and unforgettable experience.",
+		tools: ["Next JS", "Node", "Express", "MongoDB", "Hotelbeds API", "Rails"],
+		github: "https://github.com/millidavitti/Nulo",
+		link: "https://nulo-hotels.vercel.app/",
+		thumb: "",
+	},
+	{
+		name: "Torch",
+		description:
+			"Torch is an indispensable blog & magazine theme with a clean, modern design suitable for everyone who wants to share their stories about today’s ever-changing technology, the latest breaking news or the hottest products.",
+		tools: ["Next JS", "Node", "MongoDB", "Rails", "Vercel"],
+		github: "https://github.com/millidavitti/torch",
+		link: "https://torch-mordern-blog.vercel.app/",
+		thumb: "",
+	},
+	{
+		name: "NASA",
 		description:
 			"A minimal, dark blue theme for VS Code, Sublime Text, Atom, iTerm, and more. Available on Visual Studio Marketplace, Package Control, Atom Package Manager, and npm.",
-		tools: ["VS Code", "Sublime Text", "Atom", "iTerm2", "Hyper"],
-		github: "https://github.com/millidavitti",
-		link: "https://github.com/millidavitti",
-		thumb: "",
-	},
-	{
-		name: "Spotify Profile",
-		description:
-			"A web app for visualizing personalized Spotify data. View your top artists, top tracks, recently played tracks, and detailed audio information about each track. Create and save new playlists of recommended tracks based on your existing playlists and more.",
-		tools: ["React", "Styled Components", "Express", "Spotify API", "Heroku"],
-		github: "https://github.com/millidavitti",
-		link: "https://github.com/millidavitti",
-		thumb: "",
-	},
-	{
-		name: "Build a Spotify Connected App",
-		description:
-			"this course covers everything from explaining the principles of REST APIs to implementing Spotify's OAuth flow and fetching API data in a React app. By the end of the course, you’ll have an app deployed to the internet you can add to your portfolio.",
-		tools: ["React", "Styled Components", "Express", "Spotify API", "Heroku"],
-		github: "https://github.com/millidavitti",
+		tools: ["VS Code", "React", "Node", "Github Actions", "Fly"],
+		github: "https://github.com/millidavitti/NASA",
 		link: "https://github.com/millidavitti",
 		thumb: "",
 	},
 ];
 export const others = [
 	{
-		name: "Integrating Algolia Search with WordPress Multisite",
-		description:
-			"Building a custom multisite compatible WordPress plugin to build global search with Algolia",
+		name: "Forkify",
+		description: "Pulls recipes from an api and displays them to the user.",
 		tools: ["VS Code", "Sublime Text", "Atom", "iTerm2", "Hyper"],
-
-		link: "https://github.com/millidavitti",
+		link: "https://github.com/millidavitti/Forkify--Model-View-Controller-",
 	},
 	{
-		name: "Time to Have More Fun",
+		name: "Space Tourism",
 		description:
-			"A single page web app for helping me choose where to travel, built with Next.js, Firebase, and Tailwind CSS",
-		tools: ["React", "Styled Components", "Express", "Spotify API", "Heroku"],
-		link: "https://github.com/millidavitti",
+			"Let’s face it; if you want to go to space, you might as well genuinely go to outer space and not hover kind of on the edge of it. Well sit back, and relax because we’ll give you a truly out of this world experience! Explore",
+		tools: ["HTML", "CSS", "JavaScript"],
+		link: "https://github.com/millidavitti/space-tourism-website-main",
 	},
 	{
-		name: "Building a Headless Mobile App CMS From Scratch",
-		description:
-			"Find out how we built a custom headless CMS with Node, Express, and Firebase for a project at Upstatement",
-		tools: ["React", "Styled Components", "Express", "Spotify API", "Heroku"],
-		link: "https://github.com/millidavitti",
+		name: "TO-DO",
+		description: "The cliche zygote developer project",
+		tools: ["React"],
+		link: "https://github.com/millidavitti/todo-app-react",
 	},
 	{
-		name: "Octo Profile",
+		name: "Let's Roll",
 		description:
-			"A nicer look at your GitHub profile and repo stats. Includes data visualizations of your top languages, starred repositories, and sort through your top repos by number of stars, forks, and size.",
-		tools: ["React", "Styled Components", "Express", "Spotify API", "Heroku"],
-		link: "https://github.com/millidavitti",
-	},
-	{
-		name: "Apple Music Embeddable Web Player Widget",
-		description:
-			"Embeddable web player widget for Apple Music that lets users log in and listen to full song playback in the browser leveraging",
-		tools: ["React", "Styled Components", "Express", "Spotify API", "Heroku"],
-		link: "https://github.com/millidavitti",
+			"The rules are simple, roll the dice and hold as you please. Keep in mind that, when you roll one, you lose all accumulated dice rolls and your turn. First to accumulate the default sum value (200) of dice rolls wins. You can set your own value. Hit enter to start right away!",
+		tools: ["HTML", "CSS", "JavaScript"],
+		link: "https://github.com/millidavitti/Lets-roll",
 	},
 ];
 export const experiences = [
@@ -98,7 +88,6 @@ export const experiences = [
 			"Developed and shipped highly interactive web UI using Next  JS",
 			"Implemented using a serverless architecture to leverage cloud infrastructure to run its backend logic which includes, scale automatically based on the amount of traffic it receives, and only pay for the resources it consumes. Cost effective my use case.",
 			"The application retrieves data from the external API when the cron job runs, processing and storing it in its backend for use by other parts of the application",
-			"Architected and implemented the front-end of Apple Music's embeddable web player widget, which lets users log in and listen to full songs in the browser",
 		],
 	},
 ];
