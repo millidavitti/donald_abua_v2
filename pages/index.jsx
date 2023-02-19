@@ -4,22 +4,32 @@ import Container from "../components/Container";
 import home from "../styles/Home.module.css";
 import SectionHeader from "../components/SectionHeader";
 import Featured from "../components/Featured";
-import OtherProjects from "../components/OtherProjects";
+import OtherProjectsComponent from "../components/OtherProjects";
 import Experience from "../components/Experience";
-
-import { features, others } from "../utils/mock";
+import { ErrorBoundary } from "react-error-boundary";
 import { useRef } from "react";
 import Observer from "../components/Observer";
-export default function Home() {
-	const aboutSection = useRef();
-	const aboutMe = useRef();
-	const photo = useRef();
-	const experience = useRef();
-	const featuredSection = useRef();
-	const featured = useRef([]);
+// Controllers
+import aboutmeController from "../serverless/controllers/aboutme.controller";
+import experienceController from "../serverless/controllers/experience.controller";
+import featureProjectsController from "../serverless/controllers/featureProjects.controller";
+import otherProjectsController from "../serverless/controllers/otherProjects.controller";
+
+export default function Home({
+	aboutmeData,
+	experienceData,
+	featureProjectData,
+	otherProjectData,
+}) {
+	const aboutSectionRef = useRef();
+	const aboutMeRef = useRef();
+	const photoRef = useRef();
+	const experienceRef = useRef();
+	const featuredSectionRef = useRef();
+	const featuredRefs = useRef([]);
 
 	function featureRefs(idx, el) {
-		return (featured.current[idx] = el);
+		return (featuredRefs.current[idx] = el);
 	}
 
 	return (
@@ -56,50 +66,34 @@ export default function Home() {
 
 			{/* About ME */}
 			<Observer
-				parent={aboutSection}
-				elem={aboutMe}
+				parent={aboutSectionRef}
+				elem={aboutMeRef}
 				classList={home.slideUp}
-				config={{ threshold: 0.12 }}
+				config={{ threshold: 0.35 }}
 			>
-				<Section ref={aboutSection} className={home.aboutSection} id='about'>
+				<Section ref={aboutSectionRef} className={home.aboutSection} id='about'>
 					<Container className={home.aboutContainer}>
 						<SectionHeader pos={"01"} heading={"About Me"} />
-						<article ref={aboutMe} className={home.aboutArticle}>
+						<article ref={aboutMeRef} className={home.aboutArticle}>
 							<p>
-								Hello! My name is Donald and I enjoy creating things that live
-								on the internet. My interest in web development started back in
-								2012 when I decided to try editing custom Tumblr themes — turns
-								out hacking together a custom reblog button taught me a lot
-								about HTML & CSS! <br />
-								<br /> Fast-forward to today, and I’ve had the privilege of
-								working at an advertising agency, a start-up, a huge
-								corporation, and a student-led design studio. My main focus
-								these days is building accessible, inclusive products and
-								digital experiences at Upstatement for a variety of clients.{" "}
-								<br />
-								<br />I also recently launched a course that covers everything
-								you need to build a web app with the Spotify API using Node &
-								React.
+								{JSON.parse(aboutmeData).aboutMe}
 								<br />
 								<br />
 								Here are a few technologies I’ve been working with recently:
 							</p>
 							<ul>
-								<li>JavaScript (ES6+)</li>
-								<li>React</li>
-								<li>Node.js</li>
-								<li>MongoDB</li>
-								<li>Next JS</li>
-								<li>Strapi (Headless CMS)</li>
+								{JSON.parse(aboutmeData).toolChain.map((tool) => (
+									<li key={tool}>{tool}</li>
+								))}
 							</ul>
 						</article>
 						<Observer
-							parent={photo}
-							elem={photo}
+							parent={photoRef}
+							elem={photoRef}
 							classList={home.scale}
 							config={{ threshold: 0.4 }}
 						>
-							<figure ref={photo} className={home.aboutFig}>
+							<figure ref={photoRef} className={home.aboutFig}>
 								<img
 									src='https://res.cloudinary.com/torch-cms-media/image/upload/v1673611182/avatar_vyu2q3.jpg'
 									alt='Mr Donald'
@@ -109,35 +103,54 @@ export default function Home() {
 					</Container>
 				</Section>
 			</Observer>
-
 			{/* where I've worked */}
 			<Section className={home.workSection} id='experience'>
-				<Observer parent={experience} elem={experience} classList={home.scale}>
+				<Observer
+					parent={experienceRef}
+					elem={experienceRef}
+					classList={home.scale}
+				>
 					<Container
-						ref={experience}
+						ref={experienceRef}
 						className={home.experienceContainer}
 						config={{ threshold: [0.05, 0.35] }}
 					>
 						<SectionHeader pos={"02"} heading={"Where I've worked"} />
 						{/* Workplace */}
-						<div className={home.experiences}>
-							<Experience />
-						</div>
+						<ErrorBoundary
+							FallbackComponent={(function ErrorFallback() {
+								return (
+									<div role='alert'>
+										<p>Something went wrong:</p>
+										<pre>LOADING ERROR...</pre>
+										<button>Try again</button>
+									</div>
+								);
+							})()}
+						>
+							<div className={home.experiences}>
+								<Experience experienceData={experienceData} />
+							</div>
+						</ErrorBoundary>
 					</Container>
 				</Observer>
 			</Section>
 
 			{/* Notable Projects */}
-			<Section ref={featuredSection} className={home.featuredSection} id='work'>
+			<Section
+				ref={featuredSectionRef}
+				className={home.featuredSection}
+				id='work'
+			>
 				<Container className={home.featuredContainer}>
 					<SectionHeader pos={"03"} heading={"Some Things I’ve Built"} />
 					<Observer
-						parent={featured}
-						elem={featured}
+						parent={featuredRefs}
+						elem={featuredRefs}
 						classList={home.slideUp}
 						config={{ threshold: 0.1 }}
 					>
-						{features.map((feature, index) =>
+						{JSON.parse(featureProjectData).map((feature, index) =>
 							index % 2 ? (
 								<Featured
 									ref={featureRefs.bind(null, index)}
@@ -167,9 +180,9 @@ export default function Home() {
 						<p>view the archive</p>
 					</div>
 					<div className={home.opGrid}>
-						{others.map((project) => (
+						{JSON.parse(otherProjectData).map((project) => (
 							<a key={project.name} href={project.link}>
-								<OtherProjects data={project} />
+								<OtherProjectsComponent data={project} />
 							</a>
 						))}
 					</div>
@@ -199,4 +212,18 @@ export default function Home() {
 	);
 }
 
-function getServerSideProps() {}
+export async function getServerSideProps() {
+	const aboutmeData = await aboutmeController();
+	const experienceData = await experienceController();
+	const featureProjectData = await featureProjectsController();
+	const otherProjectData = await otherProjectsController();
+
+	return {
+		props: {
+			aboutmeData,
+			experienceData,
+			featureProjectData,
+			otherProjectData,
+		},
+	};
+}
