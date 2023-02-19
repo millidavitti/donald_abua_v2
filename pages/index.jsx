@@ -6,10 +6,13 @@ import SectionHeader from "../components/SectionHeader";
 import Featured from "../components/Featured";
 import OtherProjects from "../components/OtherProjects";
 import Experience from "../components/Experience";
-
+import { ErrorBoundary } from "react-error-boundary";
 import { features, others } from "../utils/mock";
 import { useRef } from "react";
 import Observer from "../components/Observer";
+import useSWR from "swr";
+import axios from "axios";
+
 export default function Home() {
 	const aboutSection = useRef();
 	const aboutMe = useRef();
@@ -18,6 +21,10 @@ export default function Home() {
 	const featuredSection = useRef();
 	const featured = useRef([]);
 
+	const aboutData = useSWR("/api/aboutme");
+	const featureData = useSWR("/api/featureProjects");
+	const otherData = useSWR("/api/otherProjects");
+	console.log(aboutData.data, featureData.data, otherData.data);
 	function featureRefs(idx, el) {
 		return (featured.current[idx] = el);
 	}
@@ -59,38 +66,23 @@ export default function Home() {
 				parent={aboutSection}
 				elem={aboutMe}
 				classList={home.slideUp}
-				config={{ threshold: 0.12 }}
+				config={{ threshold: 0.35 }}
 			>
 				<Section ref={aboutSection} className={home.aboutSection} id='about'>
 					<Container className={home.aboutContainer}>
 						<SectionHeader pos={"01"} heading={"About Me"} />
 						<article ref={aboutMe} className={home.aboutArticle}>
 							<p>
-								Hello! My name is Donald and I enjoy creating things that live
-								on the internet. My interest in web development started back in
-								2012 when I decided to try editing custom Tumblr themes — turns
-								out hacking together a custom reblog button taught me a lot
-								about HTML & CSS! <br />
-								<br /> Fast-forward to today, and I’ve had the privilege of
-								working at an advertising agency, a start-up, a huge
-								corporation, and a student-led design studio. My main focus
-								these days is building accessible, inclusive products and
-								digital experiences at Upstatement for a variety of clients.{" "}
-								<br />
-								<br />I also recently launched a course that covers everything
-								you need to build a web app with the Spotify API using Node &
-								React.
+								{!aboutData.isLoading && aboutData.data.aboutMe}
 								<br />
 								<br />
 								Here are a few technologies I’ve been working with recently:
 							</p>
 							<ul>
-								<li>JavaScript (ES6+)</li>
-								<li>React</li>
-								<li>Node.js</li>
-								<li>MongoDB</li>
-								<li>Next JS</li>
-								<li>Strapi (Headless CMS)</li>
+								{!aboutData.isLoading &&
+									aboutData.data.toolChain.map((tool) => (
+										<li key={tool}>{tool}</li>
+									))}
 							</ul>
 						</article>
 						<Observer
@@ -120,9 +112,21 @@ export default function Home() {
 					>
 						<SectionHeader pos={"02"} heading={"Where I've worked"} />
 						{/* Workplace */}
-						<div className={home.experiences}>
-							<Experience />
-						</div>
+						<ErrorBoundary
+							FallbackComponent={(function ErrorFallback() {
+								return (
+									<div role='alert'>
+										<p>Something went wrong:</p>
+										<pre>LOADING ERROR...</pre>
+										<button>Try again</button>
+									</div>
+								);
+							})()}
+						>
+							<div className={home.experiences}>
+								<Experience />
+							</div>
+						</ErrorBoundary>
 					</Container>
 				</Observer>
 			</Section>
@@ -137,24 +141,25 @@ export default function Home() {
 						classList={home.slideUp}
 						config={{ threshold: 0.1 }}
 					>
-						{features.map((feature, index) =>
-							index % 2 ? (
-								<Featured
-									ref={featureRefs.bind(null, index)}
-									key={index}
-									data={feature}
-									id={index}
-								/>
-							) : (
-								<Featured
-									ref={featureRefs.bind(null, index)}
-									key={index}
-									flip={true}
-									data={feature}
-									id={index}
-								/>
-							),
-						)}
+						{!featureData.isLoading &&
+							featureData.data.map((feature, index) =>
+								index % 2 ? (
+									<Featured
+										ref={featureRefs.bind(null, index)}
+										key={index}
+										data={feature}
+										id={index}
+									/>
+								) : (
+									<Featured
+										ref={featureRefs.bind(null, index)}
+										key={index}
+										flip={true}
+										data={feature}
+										id={index}
+									/>
+								),
+							)}
 					</Observer>
 				</Container>
 			</Section>
@@ -167,11 +172,12 @@ export default function Home() {
 						<p>view the archive</p>
 					</div>
 					<div className={home.opGrid}>
-						{others.map((project) => (
-							<a key={project.name} href={project.link}>
-								<OtherProjects data={project} />
-							</a>
-						))}
+						{!otherData.isLoading &&
+							otherData.data.map((project) => (
+								<a key={project.name} href={project.link}>
+									<OtherProjects data={project} />
+								</a>
+							))}
 					</div>
 				</Container>
 			</Section>
@@ -198,5 +204,3 @@ export default function Home() {
 		</>
 	);
 }
-
-function getServerSideProps() {}
