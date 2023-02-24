@@ -106,7 +106,9 @@
 
 .aboutContainer {
 	display: grid;
-	gap: 40px;
+	gap: 20px;
+	overflow: hidden;
+	/* outline: auto; */
 }
 
 .aboutHeader {
@@ -136,10 +138,16 @@
 .aboutArticle {
 	display: grid;
 	gap: 40px;
-
 	translate: 0 100px;
+	scale: 1;
 	opacity: 0;
-	transition: all 650ms cubic-bezier(0.23, 1, 0.32, 1);
+	transition: all 650ms cubic-bezier(0.175, 0.885, 0.32, 1);
+}
+
+.aboutArticle[data-inview="true"] {
+	translate: 0;
+	scale: 1;
+	opacity: 1;
 }
 
 .aboutArticle > p {
@@ -174,6 +182,12 @@
 	scale: 0.85;
 	translate: 0 10px;
 	transition: scale 400ms ease-in-out;
+}
+
+.aboutFig[data-inview="true"] {
+	scale: 1;
+	opacity: 1;
+	translate: 0;
 }
 
 .aboutFig img {
@@ -230,13 +244,21 @@
 	padding: 0 min(200px, 5vw);
 	width: -moz-fit-content;
 	width: fit-content;
-
 	scale: 1.25;
 	translate: 0 30px;
 	opacity: 0;
+	position: relative;
+	z-index: -1;
 	transition: scale 550ms ease-out;
 }
-.tabs {
+
+.experienceContainer[data-inview="true"] {
+	scale: 1;
+	opacity: 1;
+	translate: 0;
+	z-index: initial;
+}
+.experienceTabs {
 	display: flex;
 	gap: 10px;
 	width: 100%;
@@ -247,21 +269,31 @@
 	margin-right: auto;
 }
 
-.tabs::-webkit-scrollbar {
+.experienceTabs::-webkit-scrollbar {
 	height: 5px;
 }
 
-.tabs::-webkit-scrollbar-thumb {
+.experienceTabs::-webkit-scrollbar-thumb {
 	background-color: var(--accent);
 	height: 5px;
 }
 
-.tabs p {
+.experienceTab {
 	font-family: var(--ubuntu);
-}
-.tab {
 	padding: 10px 20px;
 	flex-shrink: 0;
+	list-style: none;
+	position: relative;
+	/* outline: auto; */
+}
+
+.highlight {
+	height: 2px;
+	left: 0;
+	right: 0;
+	bottom: -1px;
+	background: var(--accent);
+	position: absolute;
 }
 
 .experiences {
@@ -316,6 +348,7 @@
 .featuredContainer {
 	display: grid;
 	gap: 40px;
+	overflow: hidden;
 }
 .featured {
 	display: grid;
@@ -326,10 +359,14 @@
 	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.34);
 	line-height: 25px;
 	position: relative;
-
 	translate: 0 100px;
 	opacity: 0;
 	transition: all 650ms ease-in-out;
+}
+
+.featured[data-inview="true"] {
+	translate: 0;
+	opacity: 1;
 }
 
 .featuredHeader p {
@@ -416,8 +453,15 @@
 	background: #112240;
 	height: 100%;
 	padding: 30px;
+	translate: 0 50px;
+	opacity: 0;
 	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.34);
 	transition: translate 400ms ease-in-out;
+}
+.otherProject[data-inview="true"] {
+	translate: 0;
+	opacity: 1;
+	z-index: initial;
 }
 
 .otherProjectHeader {
@@ -522,16 +566,11 @@
 	animation: animateIn 300ms cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-.scale {
-	scale: 1;
-	opacity: 1;
-	translate: 0;
-}
-
 .slideUp {
 	translate: 0;
 	opacity: 1;
 }
+
 @keyframes animateIn {
 	0% {
 		opacity: 0;
@@ -557,7 +596,7 @@
 		grid-column: 4/-1;
 	}
 
-	.tabs {
+	.experienceTabs {
 		/* outline: auto; */
 		display: flex;
 		flex-flow: column;
@@ -569,7 +608,7 @@
 		overflow-y: auto;
 	}
 
-	.tab {
+	.experienceTab {
 		width: -moz-fit-content;
 		padding: 10px 0;
 		padding-left: 10px;
@@ -578,11 +617,11 @@
 		/* border: 1px solid yellow; */
 	}
 
-	.tab:hover {
+	.experienceTab:hover {
 		background-color: var(--glass);
 	}
 
-	.tab:hover {
+	.experienceTab:hover {
 		color: black;
 	}
 
@@ -595,6 +634,14 @@
 	.deskTabHighlight {
 		border-left: 5px solid var(--accent);
 		border-bottom: none;
+	}
+
+	.highlight {
+		width: 3px;
+		height: 100%;
+		top: 0;
+		background: var(--accent);
+		position: absolute;
 	}
 }
 @media screen and (min-width: 768px) {
@@ -681,8 +728,8 @@
 	}
 
 	.featuredBg:hover::before {
-		backdrop-filter: blur(0);
 		-webkit-backdrop-filter: blur(0);
+		backdrop-filter: blur(0);
 		opacity: 0;
 	}
 }
