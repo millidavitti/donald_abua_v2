@@ -2,13 +2,11 @@
 import Section from "../components/Section";
 import Container from "../components/Container";
 import home from "../styles/Home.module.css";
-import SectionHeader from "../components/SectionHeader";
-import Featured from "../components/Featured";
-import OtherProjectsComponent from "../components/OtherProjects";
 import Experience from "../components/Experience";
-import { ErrorBoundary } from "react-error-boundary";
-import { useRef } from "react";
-import Observer from "../components/Observer";
+import Aboutme from "../components/Aboutme";
+import FeatureProjects from "../components/FeatureProjects";
+import OtherProjects from "../components/OtherProjects";
+
 // Controllers
 import aboutmeController from "../serverless/controllers/aboutme.controller";
 import experienceController from "../serverless/controllers/experience.controller";
@@ -21,17 +19,7 @@ export default function Home({
 	featureProjectData,
 	otherProjectData,
 }) {
-	const aboutSectionRef = useRef();
-	const aboutMeRef = useRef();
-	const photoRef = useRef();
-	const experienceRef = useRef();
-	const featuredSectionRef = useRef();
-	const featuredRefs = useRef([]);
-
-	function featureRefs(idx, el) {
-		return (featuredRefs.current[idx] = el);
-	}
-
+	console.log(JSON.parse(featureProjectData));
 	return (
 		<>
 			{/* Hero Section */}
@@ -46,9 +34,11 @@ export default function Home({
 
 					<article>
 						<p>
-							I’m a software engineer specializing in building (and occasionally
-							designing) exceptional digital experiences. Currently, I’m focused
-							on building accessible, human-centered products at Upstatement.
+							I&apos;m a software engineer with two years of experience,
+							specializing in web development with a strong background in Git,
+							Shell, React, Next.js, JavaScript, CI/CD, collaboration, HTML, and
+							CSS. Currently, I&apos;m focused on building accessible,
+							management-centered products at Flexisaf.
 						</p>
 					</article>
 
@@ -65,130 +55,15 @@ export default function Home({
 			</Section>
 
 			{/* About ME */}
-			<Observer
-				parent={aboutSectionRef}
-				elem={aboutMeRef}
-				classList={home.slideUp}
-				config={{ threshold: 0.35 }}
-			>
-				<Section ref={aboutSectionRef} className={home.aboutSection} id='about'>
-					<Container className={home.aboutContainer}>
-						<SectionHeader pos={"01"} heading={"About Me"} />
-						<article ref={aboutMeRef} className={home.aboutArticle}>
-							<p>
-								{JSON.parse(aboutmeData).aboutMe}
-								<br />
-								<br />
-								Here are a few technologies I’ve been working with recently:
-							</p>
-							<ul>
-								{JSON.parse(aboutmeData).toolChain.map((tool) => (
-									<li key={tool}>{tool}</li>
-								))}
-							</ul>
-						</article>
-						<Observer
-							parent={photoRef}
-							elem={photoRef}
-							classList={home.scale}
-							config={{ threshold: 0.4 }}
-						>
-							<figure ref={photoRef} className={home.aboutFig}>
-								<img
-									src='https://res.cloudinary.com/torch-cms-media/image/upload/v1673611182/avatar_vyu2q3.jpg'
-									alt='Mr Donald'
-								/>
-							</figure>
-						</Observer>
-					</Container>
-				</Section>
-			</Observer>
+			<Aboutme aboutmeData={aboutmeData} />
+
 			{/* where I've worked */}
-			<Section className={home.workSection} id='experience'>
-				<Observer
-					parent={experienceRef}
-					elem={experienceRef}
-					classList={home.scale}
-				>
-					<Container
-						ref={experienceRef}
-						className={home.experienceContainer}
-						config={{ threshold: [0.05, 0.35] }}
-					>
-						<SectionHeader pos={"02"} heading={"Where I've worked"} />
-						{/* Workplace */}
-						<ErrorBoundary
-							FallbackComponent={(function ErrorFallback() {
-								return (
-									<div role='alert'>
-										<p>Something went wrong:</p>
-										<pre>LOADING ERROR...</pre>
-										<button>Try again</button>
-									</div>
-								);
-							})()}
-						>
-							<div className={home.experiences}>
-								<Experience experienceData={experienceData} />
-							</div>
-						</ErrorBoundary>
-					</Container>
-				</Observer>
-			</Section>
+			<Experience experienceData={experienceData} />
 
 			{/* Notable Projects */}
-			<Section
-				ref={featuredSectionRef}
-				className={home.featuredSection}
-				id='work'
-			>
-				<Container className={home.featuredContainer}>
-					<SectionHeader pos={"03"} heading={"Some Things I’ve Built"} />
-					<Observer
-						parent={featuredRefs}
-						elem={featuredRefs}
-						classList={home.slideUp}
-						config={{ threshold: 0.1 }}
-					>
-						{JSON.parse(featureProjectData).map((feature, index) =>
-							index % 2 ? (
-								<Featured
-									ref={featureRefs.bind(null, index)}
-									key={index}
-									data={feature}
-									id={index}
-								/>
-							) : (
-								<Featured
-									ref={featureRefs.bind(null, index)}
-									key={index}
-									flip={true}
-									data={feature}
-									id={index}
-								/>
-							),
-						)}
-					</Observer>
-				</Container>
-			</Section>
-
+			<FeatureProjects featureProjectData={featureProjectData} />
 			{/* Other Noteable Projects */}
-			<Section>
-				<Container className={home.otherProjContainer}>
-					<div className={home.opHead}>
-						<h2>Other Noteworthy Projects</h2>
-						<p>view the archive</p>
-					</div>
-					<div className={home.opGrid}>
-						{JSON.parse(otherProjectData).map((project) => (
-							<a key={project.name} href={project.link}>
-								<OtherProjectsComponent data={project} />
-							</a>
-						))}
-					</div>
-				</Container>
-			</Section>
-
+			<OtherProjects otherProjectData={otherProjectData} />
 			{/* What next */}
 			<Section id='contact'>
 				<Container className={home.contact}>

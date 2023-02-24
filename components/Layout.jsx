@@ -47,7 +47,7 @@ export default function Layout({ children }) {
 					opacity: isToggled ? 1 : 0,
 					pointerEvents: isToggled ? "unset" : "none",
 				}}
-			></div>
+			/>
 			<Head>
 				<link rel='icon' href='favicon.ico' />
 			</Head>
@@ -123,10 +123,35 @@ export default function Layout({ children }) {
 			<main className='main'>{children}</main>
 			<footer>
 				<div className='socials pointer'>
-					<GithubLogo size={25} />
-					<InstagramLogo size={25} />
-					<TwitterLogo size={25} />
-					<LinkedinLogo size={25} />
+					<a
+						href='https://github.com/millidavitti'
+						target='_blank'
+						rel='noopener noreferrer'
+					>
+						<GithubLogo size={25} />
+					</a>
+					<a
+						href='https://instagram.com/milli_davitti'
+						target='_blank'
+						rel='noopener noreferrer'
+					>
+						<InstagramLogo size={25} />
+					</a>
+					<a
+						href='https://twitter.com/gigo_22'
+						target='_blank'
+						rel='noopener noreferrer'
+					>
+						<TwitterLogo size={25} />
+					</a>
+					<a
+						href='https://linkedin.com/donaldabua-react'
+						target='_blank'
+						rel='noopener noreferrer'
+					>
+						<LinkedinLogo size={25} />
+					</a>
+
 					<hr />
 				</div>
 				<div className='email'>

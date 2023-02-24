@@ -62,9 +62,12 @@ header {
 	margin-top: 30px;
 	cursor: pointer;
 }
-
 #__next {
 	background: #0a192f;
+}
+
+a svg {
+	color: var(--pfc);
 }
 
 .main {

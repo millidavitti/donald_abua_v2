@@ -1,23 +1,25 @@
-import { FolderSimple, Link } from "phosphor-react";
+import React from "react";
+import Container from "./Container";
+import Others from "./Others";
+import Section from "./Section";
 import home from "../styles/Home.module.css";
-import ToolChain from "./ToolChain";
 
-export default function OtherProjects({ data }) {
+export default function OtherProjects({ otherProjectData }) {
 	return (
-		<div className={home.otherProject}>
-			<div className={home.otherProjectHeader}>
-				<FolderSimple size={50} color='#64ffda' stroke='1px' />
-				<Link size={25} color='white' className='pointer' />
-			</div>
-			<article>
-				<h2>{data.name}</h2>
-				<p>{data.description}</p>
-				<ToolChain>
-					{data.tools.map((tool) => (
-						<p key={tool}>{tool}</p>
+		<Section>
+			<Container className={home.otherProjContainer}>
+				<div className={home.opHead}>
+					<h2>Other Noteworthy Projects</h2>
+					<p>view the archive</p>
+				</div>
+				<div className={home.opGrid}>
+					{JSON.parse(otherProjectData).map((project) => (
+						<a key={project.name} href={project.link}>
+							<Others data={project} />
+						</a>
 					))}
-				</ToolChain>
-			</article>
-		</div>
+				</div>
+			</Container>
+		</Section>
 	);
 }
