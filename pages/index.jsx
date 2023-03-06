@@ -71,9 +71,9 @@ export default function Home({
 					<article>
 						<h2>Get In touch</h2>
 						<p>
-							Although I’m not currently looking for any new opportunities, my
-							inbox is always open. Whether you have a question or just want to
-							say hi, I’ll try my best to get back to you!
+							I’m currently looking for new opportunities, my inbox is always
+							open. Whether you have a question or just want to say hi, I’ll try
+							my best to get back to you!
 						</p>
 						<a href='mailto:abuadonald@gmail.com'>
 							<button type='button' className={home.button}>
