@@ -9,8 +9,6 @@ function reducer(state, action) {
 }
 
 export default function ExperienceTab({ experienceData }) {
-	// const [tab, setTab] = useState()
-	// const tabInView = useInView(tab, { amount: 1 });
 	const init = {
 		tabs: {
 			current: JSON.parse(experienceData)[0]._id,
