@@ -44,7 +44,7 @@ export default function ExperienceTab({ experienceData }) {
 
 				{JSON.parse(experienceData).map((exp) => (
 					<li
-						key={exp.id}
+						key={exp._id}
 						className={`${home.experienceTab} pointer `}
 						onClick={highlight}
 						id={exp._id}

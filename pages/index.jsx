@@ -19,7 +19,6 @@ export default function Home({
 	featureProjectData,
 	otherProjectData,
 }) {
-	console.log(JSON.parse(featureProjectData));
 	return (
 		<>
 			{/* Hero Section */}
