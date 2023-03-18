@@ -12,7 +12,7 @@ export default function Aboutme({ aboutmeData }) {
 	const aboutMeRef = useRef();
 	const aboutMeRefInView = useInView(aboutMeRef, { amount: 0.1 });
 	const photoRefInView = useInView(photoRef, { amount: 0.2 });
-	console.log(JSON.parse(aboutmeData).aboutMe.split(". "));
+
 	return (
 		<Section className={home.aboutSection} id='about'>
 			<Container className={home.aboutContainer}>
@@ -26,9 +26,7 @@ export default function Aboutme({ aboutmeData }) {
 					{JSON.parse(aboutmeData)
 						.aboutMe.split(". ")
 						.map((pgraph, i) => (
-							<>
-								<p key={i}>{pgraph}.</p>
-							</>
+							<p key={i}>{pgraph}.</p>
 						))}
 					<p>Here are a few technologies I’ve been working with recently:</p>
 					<ul>
