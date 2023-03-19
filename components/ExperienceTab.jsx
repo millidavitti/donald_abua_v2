@@ -30,7 +30,7 @@ export default function ExperienceTab({ experienceData }) {
 
 	function highlight(event) {
 		const { id } = event.target;
-		// setTab(event.target);
+
 		dispatch({ type: "tab", id });
 		exp.current.classList.toggle(home.slideIn);
 		exp.current.classList.add(home.slideIn);

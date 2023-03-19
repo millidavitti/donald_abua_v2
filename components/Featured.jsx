@@ -39,10 +39,7 @@ export default function Featured({ flip, data }) {
 
 				{/* Background */}
 				<figure className={`${home.featuredBg} ${flip && home.flipBg}`}>
-					<img
-						src='https://res.cloudinary.com/torch-cms-media/image/upload/v1673611182/avatar_vyu2q3.jpg'
-						alt='project thumbnail'
-					/>
+					<img src={data.thumb} alt='project thumbnail' />
 				</figure>
 			</motion.div>
 		</Frame>
