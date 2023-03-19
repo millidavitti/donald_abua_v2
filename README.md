@@ -19,7 +19,7 @@ I'm a software engineer with two years of experience, specializing in web develo
 
 ### Frontend Engineer (React)
 
-Flexisaf (May 2022 - Dec 2022)
+Flexisaf (May 2022 - present)
 
 - Assisted in the development and maintenance of web applications using React and Next.js.
 - Utilized Git for version control and collaborated with team members using CI/CD pipelines.
@@ -37,7 +37,7 @@ Oluadepe Farms (August 2021 - October 2022)
 
 ## Interests
 
-In my free time, I enjoy reading about the latest technology trends and developments, contributing to open-source projects, and exploring new tools and frameworks to improve my skills.
+In my free time, I enjoy reading about the latest technology trends and developments, exploring new tools and frameworks to improve my skills.
 
 Contact
 Feel free to contact me at abuadonald@gmail.com or connect with me on [LinkedIn](https://www.linkedin.com/in/donaldabua-react/).
