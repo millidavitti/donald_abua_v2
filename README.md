@@ -15,28 +15,6 @@ I'm a software engineer with two years of experience, specializing in web develo
 - Familiarity with Agile development methodologies and project management tools
 - Strong communication and collaboration skills for working in a team environment.
 
-## Work Experience
-
-### Frontend Engineer (React)
-
-Flexisaf (May 2022 - present)
-
-- Assisted in the development and maintenance of web applications using React and Next.js.
-- Utilized Git for version control and collaborated with team members using CI/CD pipelines.
-- Implemented responsive and accessible designs using HTML and CSS.
-- Ensured the quality of the code by adhering to coding standards and attention to details.
-
-### Software Engineer (Intern)
-
-Oluadepe Farms (August 2021 - October 2022)
-
-- Developed and maintained web applications using React and Next.js.
-- Utilized Git for version control and collaborated with team members using CI/CD pipelines.
-- Implemented responsive and accessible designs using HTML and CSS.
-- Ensured the quality of the code by adhering to coding standards and attention to details.
-
-## Interests
-
 In my free time, I enjoy reading about the latest technology trends and developments, exploring new tools and frameworks to improve my skills.
 
 Contact
