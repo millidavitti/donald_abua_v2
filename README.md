@@ -5,7 +5,7 @@ I'm a software engineer with two years of experience, specializing in web develo
 ## Skills and Expertise
 
 - Proficiency in HTML, CSS, and JavaScript
-- Experience with popular front-end frameworks such as React, Angular, or Vue.js
+- Experience with front-end frameworks such as Next
 - Understanding of server-side technologies such as Node.js
 - Knowledge of database technologies such as MongoDB
 - Familiarity with version control systems such as Git
