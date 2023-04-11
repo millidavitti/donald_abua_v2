@@ -4,7 +4,7 @@ const schema = new mongoose.Schema({
 	name: String,
 	description: String,
 	tools: [String],
-	projectLink: String,
+	link: String,
 });
 
 module.exports =
