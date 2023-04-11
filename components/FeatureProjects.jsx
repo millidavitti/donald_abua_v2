@@ -1,4 +1,3 @@
-import React, { use, useEffect, useRef } from "react";
 import Container from "./Container";
 import Featured from "./Featured";
 import Section from "./Section";
