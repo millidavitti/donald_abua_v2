@@ -80,9 +80,11 @@ export default function Layout({ children }) {
 							<a className='nav-link' href='#contact'>
 								<span>04.</span>Contact
 							</a>
-							<button className='button' type='button'>
-								Resume
-							</button>
+							<a href='https://drive.google.com/file/d/10SLkbL883WwF3wCZPy0uXTc4QGLZvEYm/view?usp=sharing'>
+								<button className='button' type='button'>
+									Resume
+								</button>
+							</a>
 						</div>
 					</div>
 					{/* Desktop */}
@@ -100,9 +102,11 @@ export default function Layout({ children }) {
 							<a className='nav-link' href='#contact'>
 								<span>04.</span>Contact
 							</a>
-							<button className='button resume' type='button'>
-								Resume
-							</button>
+							<a href='https://drive.google.com/file/d/10SLkbL883WwF3wCZPy0uXTc4QGLZvEYm/view?usp=sharing'>
+								<button className='button resume' type='button'>
+									Resume
+								</button>
+							</a>
 						</div>
 					</div>
 					{!isToggled ? (
