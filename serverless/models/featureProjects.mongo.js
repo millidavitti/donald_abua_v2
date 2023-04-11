@@ -5,7 +5,7 @@ const schema = new mongoose.Schema({
 	description: String,
 	tools: [String],
 	github: String,
-	projectLink: String,
+	link: String,
 	thumb: String,
 });
 
