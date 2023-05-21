@@ -80,7 +80,7 @@ export default function Layout({ children }) {
 							<a className='nav-link' href='#contact'>
 								<span>04.</span>Contact
 							</a>
-							<a href='https://drive.google.com/file/d/10SLkbL883WwF3wCZPy0uXTc4QGLZvEYm/view?usp=sharing'>
+							<a href={resume_link}>
 								<button className='button' type='button'>
 									Resume
 								</button>
@@ -102,7 +102,7 @@ export default function Layout({ children }) {
 							<a className='nav-link' href='#contact'>
 								<span>04.</span>Contact
 							</a>
-							<a href='https://drive.google.com/file/d/10SLkbL883WwF3wCZPy0uXTc4QGLZvEYm/view?usp=sharing'>
+							<a href={resume_link}>
 								<button className='button resume' type='button'>
 									Resume
 								</button>
@@ -169,3 +169,6 @@ export default function Layout({ children }) {
 		</>
 	);
 }
+
+const resume_link =
+	"https://matching.turing.com/developer-resume/375a773d9f19641423b9fa082e5efcf924f376fcc83239";
