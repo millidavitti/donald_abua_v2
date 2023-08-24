@@ -135,7 +135,7 @@ export default function Layout({ children }) {
 						<GithubLogo size={25} />
 					</a>
 					<a
-						href='https://instagram.com/milli_davitti'
+						href='https://instagram.com/barger_monk'
 						target='_blank'
 						rel='noopener noreferrer'
 					>
@@ -149,7 +149,7 @@ export default function Layout({ children }) {
 						<TwitterLogo size={25} />
 					</a>
 					<a
-						href='https://linkedin.com/donaldabua-react'
+						href='https://www.linkedin.com/in/donaldabua-react/'
 						target='_blank'
 						rel='noopener noreferrer'
 					>
