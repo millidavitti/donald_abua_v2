@@ -4,9 +4,12 @@ export default function LandingPage({ url }) {
 	useEffect(() => {
 		document.body.style.overflow = "hidden";
 		document.body.style.paddingBottom = "30px";
+		document.querySelector(".desk-menu").style.display = "none";
 
 		return () => {
 			document.body.style.overflow = "auto";
+			document.body.style.paddingBottom = "initial";
+			document.querySelector(".desk-menu").style.display = "initial";
 		};
 	}, []);
 
