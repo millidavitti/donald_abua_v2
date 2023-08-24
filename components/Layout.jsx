@@ -149,7 +149,7 @@ export default function Layout({ children }) {
 						<TwitterLogo size={25} />
 					</a>
 					<a
-						href='https://linkedin.com/donaldabua-react'
+						href='https://www.linkedin.com/in/donaldabua-react/'
 						target='_blank'
 						rel='noopener noreferrer'
 					>
