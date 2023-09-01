@@ -13,7 +13,7 @@ export default function LandingPageTemplates({ landingPageTemplateData }) {
 	return (
 		<>
 			<Section>
-				<Container className={home.otherProjContainer} id>
+				<Container className={home.otherProjContainer} id='#funnels'>
 					<div className={home.opHead}>
 						<h2>Landing Page Templates</h2>
 						<p>for sales funnels</p>
