@@ -70,6 +70,25 @@ a svg {
 	color: var(--pfc);
 }
 
+#overlay {
+	display: flex;
+	position: fixed;
+	justify-content: center;
+	align-items: center;
+	inset: 0;
+	backdrop-filter: blur(10px);
+	background-color: #0a192f77;
+}
+
+#modal {
+	width: 90%;
+	height: 600px;
+	outline: 3px solid var(--accent);
+}
+iframe {
+	border: none;
+}
+
 .main {
 	min-height: 100vh;
 	overflow: hidden;
