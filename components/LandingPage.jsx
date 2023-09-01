@@ -11,15 +11,13 @@ export default function LandingPage({ url }) {
 
 	return (
 		<>
-			<div>
-				<iframe
-					width='100%'
-					height='600px'
-					src={url}
-					title='Website'
-					className='iframe-container'
-				></iframe>
-			</div>
+			<iframe
+				width='100%'
+				height='100%'
+				src={url}
+				title='Website'
+				className='iframe-container'
+			></iframe>
 		</>
 	);
 }
