@@ -19,8 +19,6 @@ export default function Layout({ children }) {
 
 	const deBounce = debounce(scroll, 500, { leading: true });
 
-	useEffect(() => {}, [isToggled]);
-
 	useEffect(() => {
 		window.addEventListener("scroll", deBounce);
 		return () => {
@@ -124,6 +122,7 @@ export default function Layout({ children }) {
 					)}
 				</nav>
 			</header>
+
 			<main className='main'>{children}</main>
 			<footer>
 				<div className='socials pointer'>

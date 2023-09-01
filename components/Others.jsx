@@ -18,8 +18,12 @@ export default function Others({ data }) {
 					<Link size={25} color='white' className='pointer' />
 				</div>
 				<article>
+     {/* Name */}
 					<h2>{data.name}</h2>
+     {/* Description */}
 					<p>{data.description}</p>
+
+     {/* Toolchain */}
 					<ToolChain>
 						{data.tools.map((tool) => (
 							<p key={tool}>{tool}</p>
@@ -30,3 +34,14 @@ export default function Others({ data }) {
 		</Frame>
 	);
 }
+
+[
+	{
+		_id: { $oid: "63ee8621600f69a14cc4d200" },
+		name: "Space Tourism",
+		description:
+			"Let’s face it; if you want to go to space, you might as well genuinely go to outer space and not hover kind of on the edge of it. Well sit back, and relax because we’ll give you a truly out of this world experience! Explore",
+		tools: ["HTML", "CSS", "JavaScript"],
+		__v: { $numberInt: "0" },
+	},
+];

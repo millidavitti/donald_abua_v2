@@ -459,6 +459,7 @@
 	opacity: 0;
 	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.34);
 	transition: translate 400ms ease-in-out;
+	cursor: pointer;
 }
 .otherProject[data-inview="true"] {
 	translate: 0;

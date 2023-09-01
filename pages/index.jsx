@@ -6,18 +6,21 @@ import Experience from "../components/Experience";
 import Aboutme from "../components/Aboutme";
 import FeatureProjects from "../components/FeatureProjects";
 import OtherProjects from "../components/OtherProjects";
+import LandingPageTemplates from "../components/LandingPageTemplates";
 
 // Controllers
 import aboutmeController from "../serverless/controllers/aboutme.controller";
 import experienceController from "../serverless/controllers/experience.controller";
 import featureProjectsController from "../serverless/controllers/featureProjects.controller";
 import otherProjectsController from "../serverless/controllers/otherProjects.controller";
+import landingPageTemplatesController from "../serverless/controllers/landingPageTemplates.controller";
 
 export default function Home({
 	aboutmeData,
 	experienceData,
 	featureProjectData,
 	otherProjectData,
+	landingPageTemplateData,
 }) {
 	return (
 		<>
@@ -52,17 +55,16 @@ export default function Home({
 					</a>
 				</Container>
 			</Section>
-
 			{/* About ME */}
 			<Aboutme aboutmeData={aboutmeData} />
-
 			{/* where I've worked */}
 			<Experience experienceData={experienceData} />
-
 			{/* Notable Projects */}
 			<FeatureProjects featureProjectData={featureProjectData} />
 			{/* Other Noteable Projects */}
-			<OtherProjects otherProjectData={otherProjectData} />
+			<OtherProjects otherProjectData={otherProjectData} />{" "}
+			{/* Other Noteable Projects */}
+			<LandingPageTemplates landingPageTemplateData={landingPageTemplateData} />
 			{/* What next */}
 			<Section id='contact'>
 				<Container className={home.contact}>
@@ -91,6 +93,7 @@ export async function getServerSideProps() {
 	const experienceData = await experienceController();
 	const featureProjectData = await featureProjectsController();
 	const otherProjectData = await otherProjectsController();
+	const landingPageTemplateData = await landingPageTemplatesController();
 
 	return {
 		props: {
@@ -98,6 +101,7 @@ export async function getServerSideProps() {
 			experienceData,
 			featureProjectData,
 			otherProjectData,
+			landingPageTemplateData,
 		},
 	};
 }
