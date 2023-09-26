@@ -1,7 +1,7 @@
 export default function FiverrBadge(){
     return <>
 <div itemscope itemtype='http://schema.org/Person' class='fiverr-seller-widget' style='display: inline-block;'>
-     <a itemprop='url' href="https://www.fiverr.com/donald_jayy" rel="nofollow" target="_blank" style='display: inline-block;'>
+     <a itemprop='url' href="https://www.fiverr.com/donald_jayy" rel="nofollow" target="_blank" without rel="noreferrer" style='display: inline-block;'>
         <div class='fiverr-seller-content' id='fiverr-seller-widget-content-6aeb9f0b-6f53-46fc-94da-3e768c146c89' itemprop='contentURL' style='display: none;'></div>
         <div id='fiverr-widget-seller-data' style='display: none;'>
             <div itemprop='name' >donald_jayy</div>
